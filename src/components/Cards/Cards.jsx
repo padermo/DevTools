@@ -32,7 +32,7 @@ function Cards({ documents, resources }) {
   useEffect(() => {
     if (datos) {
       setNewData([...datos].slice(0, 8));
-      setTotalPage(parseInt(total / itemsPage));
+      setTotalPage(Math.ceil(total / itemsPage));
     }
   }, [datos]);
 
