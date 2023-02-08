@@ -1,0 +1,38 @@
+.footer{
+  width: 100%;
+  height: 100px;
+  background-color: color('gris-medio');
+  font-family: $font;
+
+  &__content{
+    width: 90%;
+    height: 100%;
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__social{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__subtitle{
+    font-weight: 300;
+    font-size: 1.4rem;
+  }
+
+  &__links{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  &__img{
+    display: block;
+    width: 30px;
+  }
+}

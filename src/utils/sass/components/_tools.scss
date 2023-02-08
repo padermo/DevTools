@@ -1,0 +1,42 @@
+.tools{
+  width: 100%;
+  min-height: 100vh;
+  max-height: 100%;
+  background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
+
+  &__content{
+    width: 90%;
+    margin: 0 auto;
+    min-height: 100vh;
+    padding: 20px 0;
+  }
+
+  &__buttons{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  &__btn{
+    cursor: pointer;
+    border: none;
+    background-color: color('madera');
+    width: 140px;
+    height: 30px;
+    color: color('white');
+    font-family: $font;
+    font-weight: 300;
+
+    &:hover{
+      transform: scale(1.04);
+    }
+
+    &:active{
+      background-color: color('madera-oscuro');
+    }
+  }
+
+  &__empty{
+    height: 100vh;
+  }
+}

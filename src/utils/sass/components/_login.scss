@@ -1,0 +1,95 @@
+
+.login{
+  width: 100%;
+  min-height: 100vh;
+  max-height: 100%;
+  background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
+  font-family: $font;
+
+  &__content{
+    width: 90%;
+    margin: 0 auto;
+    min-height: 80vh;
+    padding: 20px 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+  }
+
+  &__title{
+    font-size: 2rem;
+    font-weight: 400;
+  }
+
+  &__inputs{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    
+    & > label{
+      text-align: left;
+      font-weight: 300;
+    }
+  }
+
+  &__input{
+    background-color: color('gris-medio');
+    border: none;
+    border-radius: 8px;
+    padding: 10px 16px;
+    margin-bottom: 10px;
+    outline: none;
+    font-family: inherit;
+    letter-spacing: 1px;
+    color: #fff;
+
+
+    &:focus{
+      box-shadow: 0 0 6px rgba(85, 85, 85, 0.2);
+    }
+  }
+
+  &__alert{
+    height: 30px;
+  }
+
+  &__btn{
+    width: 200px;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 10px;
+
+    &--register{
+      color: color('white');
+      background-color: color('madera');
+
+      &:hover{
+        transform: scale(1.04);
+      }
+
+      &:active{
+        background-color: color('madera-oscuro');
+      }
+    }
+  }
+
+  &__cambio{
+    cursor: pointer;
+    font-weight: 300;
+
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+}
+
+.error{
+  color: crimson;
+  font-family: $font;
+  font-weight: 300;
+  font-size: 1rem;
+}
