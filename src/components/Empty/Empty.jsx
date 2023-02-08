@@ -1,13 +1,13 @@
 import React from 'react'
 import empty from '../../assets/empty.svg'
 
-function Empty() {
+function Empty({message}) {
   return (
     <div className='empty'>
       <figure className='empty__picture'>
         <img src={empty} className="empty__img" />
       </figure>
-      <p>Empty Data</p>
+      <p>{message}</p>
     </div>
   )
 }

@@ -6,6 +6,7 @@ import Favorite from "./Favorite";
 import { removeFavorite, auth } from "../../firebase/firebase_config";
 import { onAuthStateChanged } from "firebase/auth";
 import { useNavigate } from "react-router";
+import Empty from '../Empty/Empty';
 
 function Favorites() {
   const [card, setCard] = useState([]);
@@ -50,7 +51,7 @@ function Favorites() {
         <div className="favorites">
           <Navbar />
           <div className="favorites__elements">
-            {card
+            {card.length
               ? card.map((e) => (
                   <Favorite
                     key={e.id}
@@ -62,7 +63,7 @@ function Favorites() {
                     deleteFavorite={deleteFavorite}
                   />
                 ))
-              : ""}
+              : (<div className='favorites__empty'><Empty message="No tiene favoritos agregados"/></div>)}
           </div>
           <Footer />
         </div>

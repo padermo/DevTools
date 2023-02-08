@@ -401,6 +401,9 @@
   gap: 20px;
   padding: 40px 0;
 }
+.favorites__empty {
+  width: 100%;
+}
 
 .empty {
   width: 100%;

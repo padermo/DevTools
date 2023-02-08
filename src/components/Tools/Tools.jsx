@@ -24,7 +24,7 @@ function Tools() {
           <button onClick={handleResources} className="tools__btn">Resources</button>
         </div>
         <div>
-          {viewCard ? viewCard : (<div className='tools__empty'><Empty/></div>)}
+          {viewCard ? viewCard : (<div className='tools__empty'><Empty message="Seleccione una opcion"/></div>)}
         </div>
       </div>
       <Footer/>
