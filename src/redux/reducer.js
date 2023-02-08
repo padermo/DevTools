@@ -1,8 +1,9 @@
-import { GET_DOCUMENTS, GET_RESOURCES } from './actions';
+import { GET_DOCUMENTS, GET_RESOURCES, SET_ALERT } from './actions';
 
 const initialState = {
   documents: [],
   resources: [],
+  alert: {}
 }
 
 export const reducer = (state = initialState, actions) => {
@@ -17,6 +18,12 @@ export const reducer = (state = initialState, actions) => {
       return{
         ...state,
         resources: actions.payload
+      }
+    }
+    case SET_ALERT:{
+      return{
+        ...state,
+        alert: actions.payload
       }
     }
     default:

@@ -1,10 +1,14 @@
 import React, {useState} from 'react'
+import { useSelector } from 'react-redux';
+import Alert from '../Alert/Alert';
 import Cards from '../Cards/Cards'
 import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import Empty from '../Empty/Empty';
 
 function Tools() {
+  const state = useSelector(state => state.alert);
+
   const [viewCard, setViewCard] = useState();
 
   const handleDocuments = () => {
@@ -27,6 +31,7 @@ function Tools() {
           {viewCard ? viewCard : (<div className='tools__empty'><Empty message="Seleccione una opcion"/></div>)}
         </div>
       </div>
+      {!state ? "" : <div className={`tools__alert ${state.clase}`}><Alert message={state.message}/></div>}
       <Footer/>
     </div>
   )
