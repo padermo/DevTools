@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getDocuments, getResources } from "../../redux/actions";
 import Card from "./Card";
 
-function Cards({ documents, resources }) {
+function Cards({ documents, resources, page }) {
   // guardamos los estados cambiantes de redux
   const [datos, setDatos] = useState();
   // estado del paginado
@@ -12,6 +12,8 @@ function Cards({ documents, resources }) {
   const [totalPage, setTotalPage] = useState();
   let itemsPage = 8;
   let total = datos?.length;
+
+  console.log(page)
 
   const stateDocuments = useSelector((state) => state.documents);
   const stateResources = useSelector((state) => state.resources);
@@ -31,6 +33,7 @@ function Cards({ documents, resources }) {
 
   useEffect(() => {
     if (datos) {
+      setCurrentPage(Number(page))
       setNewData([...datos].slice(0, 8));
       setTotalPage(Math.ceil(total / itemsPage));
     }

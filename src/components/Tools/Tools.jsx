@@ -8,11 +8,11 @@ function Tools() {
   const [viewCard, setViewCard] = useState();
 
   const handleDocuments = () => {
-    setViewCard(<Cards documents={true} resources={false}/>)
+    setViewCard(<Cards documents={true} resources={false} page={'0'}/>)
   }
 
   const handleResources = () => {
-    setViewCard(<Cards documents={false} resources={true}/>)
+    setViewCard(<Cards documents={false} resources={true} page={'0'}/>)
   }
 
   return (
