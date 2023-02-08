@@ -13,8 +13,6 @@ function Cards({ documents, resources, page }) {
   let itemsPage = 8;
   let total = datos?.length;
 
-  console.log(page)
-
   const stateDocuments = useSelector((state) => state.documents);
   const stateResources = useSelector((state) => state.resources);
   const dispatch = useDispatch();

@@ -61,7 +61,6 @@ export const getFavorites = async (uid) => {
 
     querySnapshot.forEach((doc)=>{
       const card = {...doc.data()};
-      card.docId = doc.id;
       cards.push(card)
     })
 
