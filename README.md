@@ -17,3 +17,5 @@ Una vez crees una cuenta e inicies sesion, podras agregar cuantas cartas quieras
 
 ## Favorites
 !['favorites'](./favorites.png)
+
+deploy: https://dev-tools-nu.vercel.app/
