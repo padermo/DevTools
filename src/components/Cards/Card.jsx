@@ -3,7 +3,7 @@ import { addFavorite } from '../../firebase/firebase_config'
 import { useDispatch } from "react-redux";
 import { setAlert } from '../../redux/actions'
 
-function Card({ id, name, url, description }) {
+function Card({ name, url, description }) {
   const dispatch = useDispatch()
 
   const addCard = () => {
@@ -11,7 +11,6 @@ function Card({ id, name, url, description }) {
       alert("Inicie sesion para agregar favoritos")
     }else{
       const card = {
-        id: id,
         name: name,
         url: url,
         description: description,

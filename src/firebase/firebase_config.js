@@ -70,9 +70,11 @@ export const getFavorites = async (uid) => {
   }
 }
 
-export const removeFavorite = async (id) => {
+export const removeFavorite = async (name) => {
   try {
-    const docRef = doc(db, "favorites", id);
+    console.log(name);
+    const docRef = doc(db, "favorites", name);
+    console.log(docRef);
     const res = await deleteDoc(docRef);
     console.log(res);
     return res;
@@ -80,3 +82,57 @@ export const removeFavorite = async (id) => {
     console.log(error);
   }
 }
+
+export const getDocumentsFirebase = async () => {
+  const documents = [];
+  try {
+    const collectionRef = collection(db, 'documents');
+    const q = query(collectionRef)
+    const querySnapshot = await getDocs(q);
+
+    querySnapshot.forEach((doc)=>{
+      const document = {...doc.data()};
+      documents.push(document)
+    })
+    return documents;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export const getResourcesFirebase = async () => {
+  const resources = [];
+  try {
+    const collectionRef = collection(db, 'resources');
+    const q = query(collectionRef);
+    const querySnapshot = await getDocs(q);
+
+    querySnapshot.forEach((doc)=>{
+      const resource = {...doc.data()};
+      resources.push(resource)
+    })
+    return resources;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export const addDocuments = async (card) => {
+  try {
+    const docRef = collection(db, "documents");
+    const res = await addDoc(docRef, card);
+    return res;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const addResources = async (card) => {
+  try {
+    const docRef = collection(db, "resources");
+    const res = await addDoc(docRef, card);
+    return res;
+  } catch (error) {
+    console.log(error);
+  }
+};

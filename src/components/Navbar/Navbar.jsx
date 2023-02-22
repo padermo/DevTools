@@ -45,6 +45,13 @@ function Navbar() {
           ) : (
             ""
           )}
+          {localStorage.getItem("uid") === "NXPoNyiw07eayLCIo51aNz3RZbW2" ? (
+            <Link to={"/create"} className="navbar__link">
+              Create
+            </Link>
+          ) : (
+            ""
+          )}
         </section>
 
         {usuarioGlobal ? (

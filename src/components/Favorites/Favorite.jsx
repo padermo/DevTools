@@ -1,8 +1,6 @@
 import React from 'react'
-import {removeFavorite} from '../../firebase/firebase_config'
 
-function Favorite({name, description, url, id, docId, deleteFavorite}) {
-  
+function Favorite({name, description, url, deleteFavorite}) {
   return (
     <div className='card'>
       <div className="card__texts">
@@ -14,7 +12,7 @@ function Favorite({name, description, url, id, docId, deleteFavorite}) {
         <a href={url} target="_blank" className="card__link">
           Ver sitio.
         </a>
-        <button className="card__favorite" onClick={()=>deleteFavorite(docId)}>
+        <button className="card__favorite" onClick={()=>deleteFavorite(name)}>
           <span className="material-symbols-outlined">delete</span>
         </button>
       </div>

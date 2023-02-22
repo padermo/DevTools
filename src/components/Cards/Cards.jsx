@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getDocuments, getResources } from "../../redux/actions";
+import {
+  getDocumentsFirebase,
+  getResourcesFirebase,
+} from "../../firebase/firebase_config";
 import Card from "./Card";
+import Animation from "../Animation/Animation";
 
 function Cards({ documents, resources, page }) {
   // guardamos los estados cambiantes de redux
@@ -13,21 +18,29 @@ function Cards({ documents, resources, page }) {
   let itemsPage = 8;
   let total = datos?.length;
 
-  const stateDocuments = useSelector((state) => state.documents);
-  const stateResources = useSelector((state) => state.resources);
-  const dispatch = useDispatch();
+  // const stateDocuments = useSelector((state) => state.documents);
+  // const stateResources = useSelector((state) => state.resources);
+  // const dispatch = useDispatch();
 
   useEffect(() => {
     if (documents === true) {
-      dispatch(getDocuments());
-      setDatos(stateDocuments);
+      const documents = async ()=>{
+        let response = await getDocumentsFirebase();
+        setDatos(response)
+      }
+      documents();
     }
 
     if (resources === true) {
-      dispatch(getResources());
-      setDatos(stateResources);
+      const resources = async () => {
+        let response = await getResourcesFirebase();
+        setDatos(response);
+      }
+      resources();
     }
-  }, [dispatch, documents, resources, datos]);
+  }, [documents, resources]);
+
+  console.log(datos);
 
   useEffect(() => {
     if (datos) {
@@ -72,14 +85,13 @@ function Cards({ documents, resources, page }) {
         {newData
           ? newData.map((e) => (
               <Card
-                key={e.id}
-                id={e.id}
+                key={e.name}
                 name={e.name}
                 description={e.description}
                 url={e.url}
               />
             ))
-          : ""}
+          : <Animation/>}
       </div>
     </div>
   );

@@ -7,6 +7,7 @@ import { removeFavorite, auth } from "../../firebase/firebase_config";
 import { onAuthStateChanged } from "firebase/auth";
 import { useNavigate } from "react-router";
 import Empty from '../Empty/Empty';
+import Animation from "../Animation/Animation";
 
 function Favorites() {
   const [card, setCard] = useState([]);
@@ -23,7 +24,9 @@ function Favorites() {
       } else {
         // en caso que no exista una sesion iniciada
         setUsuarioGlobal(null);
-        navigate("/");
+        setTimeout(()=>{
+          navigate("/");
+        },2000)
       }
     });
   }, [usuarioGlobal]);
@@ -35,12 +38,13 @@ function Favorites() {
     setCard([...resCards]);
   }
 
-  const deleteFavorite = async (docId) => {
-    await removeFavorite(docId);
-    const temp = card.filter((e) => e.docId !== docId);
+  const deleteFavorite = async (name) => {
+    await removeFavorite(name);
+    const temp = card.filter((e) => e.name !== name);
+    console.log(temp);
     setCard([...temp]);
   };
-
+  console.log(card);
   useEffect(() => {
     obtener();
   }, [removeFavorite]);
@@ -54,12 +58,10 @@ function Favorites() {
             {card.length
               ? card.map((e) => (
                   <Favorite
-                    key={e.id}
+                    key={e.name}
                     name={e.name}
                     description={e.description}
                     url={e.url}
-                    id={e.id}
-                    docId={e.docId}
                     deleteFavorite={deleteFavorite}
                   />
                 ))
@@ -68,7 +70,7 @@ function Favorites() {
           <Footer />
         </div>
       ) : (
-        ""
+        <Animation/>
       )}
     </>
   );
