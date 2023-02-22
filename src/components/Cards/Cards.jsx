@@ -40,8 +40,6 @@ function Cards({ documents, resources, page }) {
     }
   }, [documents, resources]);
 
-  console.log(datos);
-
   useEffect(() => {
     if (datos) {
       setCurrentPage(Number(page))

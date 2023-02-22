@@ -38,13 +38,12 @@ function Favorites() {
     setCard([...resCards]);
   }
 
-  const deleteFavorite = async (name) => {
-    await removeFavorite(name);
-    const temp = card.filter((e) => e.name !== name);
-    console.log(temp);
+  const deleteFavorite = async (docId) => {
+    await removeFavorite(docId);
+    const temp = card.filter((e) => e.docId !== docId);
     setCard([...temp]);
   };
-  console.log(card);
+  
   useEffect(() => {
     obtener();
   }, [removeFavorite]);
@@ -55,22 +54,27 @@ function Favorites() {
         <div className="favorites">
           <Navbar />
           <div className="favorites__elements">
-            {card.length
-              ? card.map((e) => (
-                  <Favorite
-                    key={e.name}
-                    name={e.name}
-                    description={e.description}
-                    url={e.url}
-                    deleteFavorite={deleteFavorite}
-                  />
-                ))
-              : (<div className='favorites__empty'><Empty message="No tiene favoritos agregados"/></div>)}
+            {card.length ? (
+              card.map((e) => (
+                <Favorite
+                  key={e.name}
+                  name={e.name}
+                  description={e.description}
+                  url={e.url}
+                  docId={e.docId}
+                  deleteFavorite={deleteFavorite}
+                />
+              ))
+            ) : (
+              <div className="favorites__empty">
+                <Empty message="No tiene favoritos agregados" />
+              </div>
+            )}
           </div>
           <Footer />
         </div>
       ) : (
-        <Animation/>
+        <Animation />
       )}
     </>
   );

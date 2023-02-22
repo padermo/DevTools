@@ -61,22 +61,19 @@ export const getFavorites = async (uid) => {
 
     querySnapshot.forEach((doc)=>{
       const card = {...doc.data()};
+      card.docId = doc.id;
       cards.push(card)
     })
-
     return cards;
   } catch (error) {
     console.log(error);
   }
 }
 
-export const removeFavorite = async (name) => {
+export const removeFavorite = async (docId) => {
   try {
-    console.log(name);
-    const docRef = doc(db, "favorites", name);
-    console.log(docRef);
+    const docRef = doc(db, "favorites", docId);
     const res = await deleteDoc(docRef);
-    console.log(res);
     return res;
   } catch (error) {
     console.log(error);

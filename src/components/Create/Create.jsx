@@ -9,6 +9,7 @@ function Create() {
   const [captureInputs, setCaptureInputs] = useState({
     name: "",
     url: "",
+    id: 0,
     description: "",
   });
 
