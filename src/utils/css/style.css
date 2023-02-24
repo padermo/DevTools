@@ -201,6 +201,8 @@
 .home__subtitle {
   color: #fff;
   letter-spacing: 2px;
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
+  font-size: 2em;
 }
 .home__picture {
   width: 100%;

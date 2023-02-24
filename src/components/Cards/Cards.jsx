@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { getDocuments, getResources } from "../../redux/actions";
 import {
   getDocumentsFirebase,
   getResourcesFirebase,
