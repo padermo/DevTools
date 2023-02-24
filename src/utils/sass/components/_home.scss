@@ -39,13 +39,12 @@
     align-items: center;
     justify-content: center;
     font-family: $font;
-    background-color: color('gris-medio');
+    background-color: transparent;
   }
 
   &__subtitle{
-    color: #fff;
+    color: color('madera-oscuro');
     letter-spacing: 2px;
-    text-shadow: 0 0 6px rgba(0, 0, 0, .4);
     font-size: 2em;
   }
 
