@@ -23,12 +23,15 @@
   &__menu{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
     gap: 10px;
   }
   
   &__link{
     color: color('madera');
     text-decoration: none;
+    font-size: 1em;
 
     &:hover{
       text-decoration: underline;
@@ -38,6 +41,10 @@
   &__login{
     text-decoration: none;
     color: color('gris-claro');
+
+    & > span{
+      font-size: 2em;
+    }
 
     &:hover{
       text-shadow: 0 0 4px rgba(77, 77, 77, 0.3);
@@ -49,6 +56,10 @@
     border: none;
     cursor: pointer;
     color: color('gris-claro');
+
+    & > span{
+      font-size: 2em;
+    }
 
     &:hover{
       text-shadow: 0 0 4px rgba(77, 77, 77, 0.3);

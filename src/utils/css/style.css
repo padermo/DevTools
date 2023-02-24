@@ -244,11 +244,14 @@
 .navbar__menu {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
   gap: 10px;
 }
 .navbar__link {
   color: #8C6746;
   text-decoration: none;
+  font-size: 1em;
 }
 .navbar__link:hover {
   text-decoration: underline;
@@ -256,6 +259,9 @@
 .navbar__login {
   text-decoration: none;
   color: #BFBFBF;
+}
+.navbar__login > span {
+  font-size: 2em;
 }
 .navbar__login:hover {
   text-shadow: 0 0 4px rgba(77, 77, 77, 0.3);
@@ -265,6 +271,9 @@
   border: none;
   cursor: pointer;
   color: #BFBFBF;
+}
+.navbar__signout > span {
+  font-size: 2em;
 }
 .navbar__signout:hover {
   text-shadow: 0 0 4px rgba(77, 77, 77, 0.3);

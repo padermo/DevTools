@@ -5,7 +5,7 @@ function Empty({message}) {
   return (
     <div className='empty'>
       <figure className='empty__picture'>
-        <img src={empty} className="empty__img" />
+        <img src={empty} alt="icon empty" className="empty__img" />
       </figure>
       <p>{message}</p>
     </div>
